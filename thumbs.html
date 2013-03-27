@@ -21,29 +21,32 @@
 
 <div id="allThumbs"></div>
 
-
-
+<script type="text/javascript" src="http://cdn.stage.renttherunway.com/public/js/vendor/jquery.min.js"></script>
 <script type="text/javascript">
 	
-		//------------------------------------------
+	//------------------------------------------
+	$(function() {
+
 		var thumbs;
+		var thumbRowWidth;
 		var thumbRowWrapper;
-		var allThumbs;
-		var thumbList = ['Ashley', 'Sarah', 'Julie', 'Bob', 'Rob', 'Jenny', 'Charles', 'Steven'];
-		
+		var thumbList = ['Ashley', 'Sarah', 'Julie', 'Bob', 'Rob', 'Jenny', 'Charles', 'Steven', 'JSON'];
+
 		function buildThumbs() {
 			for ( var j=0; j<thumbList.length; j++ ) {
-				thumbs += '<div class="thumb">' + thumbList[j] + '</div>';
-				thumbRowWrapper = '<div class="thumbRowWrapper">' + thumbs + '</div><br/>';	
 
-				// stick 5 thumbs into each row
-				$( thumbRowWrapper ).append( thumbs );
+				thumbs += '<div class="thumb">' + thumbList[j] + '</div>';
+				thumbRowWrapper = '<div class="thumbRowWrapper">' + thumbs;	
+
 			}
 
-			// stick rows into outer wrapper
+			// sticks rows into outer wrapper
 			$( '#allThumbs' ).append( thumbRowWrapper ); 
 		}
 		buildThumbs();
-		//------------------------------------------
-		
+
+	});	
+
+	//------------------------------------------
+
 </script>
