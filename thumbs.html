@@ -1,0 +1,49 @@
+<style>
+	#thumbWrapper {
+		border: 1px solid red;
+		width: 990px;
+	}
+	.thumbRowWrapper {
+		border: 1px solid blue;
+		width: 990px;
+		height: 275px;
+		margin-bottom: 25px;
+	}
+	.thumb {
+		border: 1px dotted purple;
+		width: 180px;
+		height: 275px;
+		float: left;
+		margin-right: 15px;
+	}
+</style>
+
+
+<div id="allThumbs"></div>
+
+
+
+<script type="text/javascript">
+	var thumbs;
+	var thumbRowWrapper;
+	var allThumbs;
+	var thumbList = ['Ashley', 'Sarah', 'Julie', 'Bob', 'Rob', 'Jenny', 'Charles', 'Steven'];
+
+	function buildThumbs() {
+		for ( var j=0; j<thumbList.length; j++ ) {
+			thumbs += '<div class="thumb">' + thumbList[j] + '</div>';
+			thumbRowWrapper = '<div class="thumbRowWrapper">' + thumbs + '</div>';	
+
+			//make 5 thumbs per row
+			if ( thumbs.length > 5 ) {
+				thumbRowWrapper += '<br/>';
+			}
+		}
+
+		
+
+		//as long as there is a thumb existing...
+		$( '#allThumbs' ).append( thumbRowWrapper ); 
+	}
+	buildThumbs();
+</script>
