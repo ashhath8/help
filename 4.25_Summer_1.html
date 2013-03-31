@@ -1,0 +1,554 @@
+
+
+<!--[if IE]><!-->
+	<style>
+		.caption {	
+			background-color: #FFFFFF; 
+
+			filter: alpha(opacity=80);
+			-moz-opacity: 0.8;
+			-khtml-opacity: 0.8;
+			opacity: 0.8;
+			background-image: url('http://cdn.rtrcdn.com/sites/default/files/caption_80.png');
+		}
+	</style>
+<!--<![end if]-->
+
+
+
+<style>
+
+	@font-face {font-family: 'ProximaNova-Semibold';src: url('//cdn.rtrcdn.com/public/webfonts/25FCDD_D_0.eot');src: url('//cdn.rtrcdn.com/public/webfonts/25FCDD_D_0.eot?#iefix') format('embedded-opentype'),url('//cdn.rtrcdn.com/public/webfonts/25FCDD_D_0.woff') format('woff'),url('//cdn.rtrcdn.com/public/webfonts/25FCDD_D_0.ttf') format('truetype');}
+
+
+	@font-face {font-family: 'FreightDispProMedium-Italic';src: url('//cdn.rtrcdn.com/public/webfonts/25FCDD_5_0.eot');src: url('//cdn.rtrcdn.com/public/webfonts/25FCDD_5_0.eot?#iefix') format('embedded-opentype'),url('//cdn.rtrcdn.com/public/webfonts/25FCDD_5_0.woff') format('woff'),url('//cdn.rtrcdn.com/public/webfonts/25FCDD_5_0.ttf') format('truetype');}
+
+	
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.floatL {float: left;}
+	.floatR {float: right;}
+
+	#bibhuMainWrapper {
+		width: 990px;
+		margin: 25px auto;
+	}
+
+
+	/*********** START: Header ************/
+	#subheadWrapper {
+		width: 990px;
+		height: 66px;
+	}
+
+	#header {
+		width: 781px;
+		height: 66px;
+		background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_subhead_4.jpg");
+		margin-bottom: 10px;
+	}
+
+	a#browseBtn {
+		width: 209px;
+		height: 66px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -120px -16px no-repeat;
+	}
+
+	a#browseBtn:hover {
+		width: 209px;
+		height: 66px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -120px -122px no-repeat;
+	}
+	/*********** END: Header ************/
+
+
+
+	/*********** START: Slideshow Gallery Images ************/
+	#slideShifter {
+		width: 990px;
+		height: 551px;
+		position: relative;
+		overflow: hidden;
+		left: 0px;
+		margin-bottom: 15px;
+	}
+	ul#slideshowWindow {
+		width: 6930px;
+		height: 551px;
+		position: absolute;
+		z-index: 0;
+		left: 0px;
+	}
+	.slide {
+		width: 990px;
+		height: 551px;
+		float: left;
+		position: relative;
+	}
+	
+	#slide1 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic1.jpg");}
+	#slide2 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic2.jpg");}
+	#slide3 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic3.jpg");}
+	#slide4 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic4.jpg");}
+	#slide5 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic5.jpg");}
+	#slide6 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic6.jpg");}
+	#slide7 {background-image: url("http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic7.jpg");}
+	/*********** END: Slideshow Gallery Images ************/
+
+
+	/*********** START: Slideshow Captions ************/
+	#bibhuMainWrapper a:link {color: #000001; text-decoration: none;} 
+	#bibhuMainWrapper a:visited {color: #000001; text-decoration: none;}
+	#bibhuMainWrapper a:hover {color: #d90077;} 
+	#bibhuMainWrapper a:active {color:#d90077;} 
+
+	.caption {
+		background-image: url("http://cdn.rtrcdn.com/sites/default/files/caption_80.png");
+		padding: 8px;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		opacity: .8;
+	}
+
+	.caption span.captionLinkTxt {
+		font-family: FreightDispProMedium-Italic, serif; /* REQUIRES TYPEKIT SCRIPT */
+		font-size: 12px;
+		text-align: left;
+		line-height: 12px;
+	}
+	.caption span.designerLinkTxt {
+		font-family: proxima-nova, Arial, sans-serif; /* REQUIRES TYPEKIT SCRIPT */
+		font-size: 10px;
+		font-style: normal;
+		font-weight: semibold;
+		text-align: left;
+		line-height: 12px;
+	}
+	/*********** END: Slideshow Captions ************/
+
+
+
+	/*********** START: Slideshow Arrows ************/
+	.navArrow {
+		width: 40px;
+		height: 94px;
+		position: absolute;
+		top: 225px;
+		z-index: 100;
+	}
+	
+	#leftArrowWrap {
+		display: none;
+		left: 0px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -66px -16px;
+	}
+	#leftArrowWrap:hover {
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -66px -122px;
+	}
+	#rightArrowWrap {
+		left: 950px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -14px -16px;
+	}
+	#rightArrowWrap:hover {
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -13px -122px;
+	}
+	/*********** END: Slideshow Arrows ************/
+
+
+	#thumbWrapper {
+		border: 1px solid red;
+		width: 990px;
+	}
+	.thumbRowWrapper {
+		border: 1px solid blue;
+		width: 990px;
+		height: 275px;
+		margin-bottom: 25px;
+	}
+	.thumb {
+		border: 1px dotted purple;
+		width: 180px;
+		height: 275px;
+		float: left;
+		margin-right: 15px;
+		margin-bottom: 15px;
+	}
+
+</style>
+
+
+<!-- ========================================== -->
+<!-- ========================================== -->
+
+
+<div id="bibhuMainWrapper">
+	
+	<div id="subheadWrapper">	
+		<div id="header" class="floatL"></div>
+		<a id="browseBtn" class="floatL" href="http://www.renttherunway.com/designer_detail/bibhumohapatra"></a>
+	</div>
+
+	<div id="slideShifter">
+		
+		<!-- previous arrow -->
+		<div id="leftArrowWrap" class="navArrow">
+			<a href="#" target="_blank" title="Previous"></a>
+		</div>
+
+		<!-- next arrow -->
+		<div id="rightArrowWrap" class="navArrow">
+			<a href="#" target="_blank" title="Next"></a>
+		</div>
+		
+		<!-- slideshow -->
+		<ul id="slideshowWindow"></ul>
+
+	</div>
+
+	<div id="allThumbs"></div>
+</div>
+
+<!-- ========================================== -->
+<!-- ========================================== -->
+
+
+
+<script type="text/javascript" src="http://cdn.stage.renttherunway.com/public/js/vendor/jquery.min.js"></script>
+
+
+
+<!-- Bibhu specific scripts -->
+<script type="text/javascript">
+	
+	//==========================================
+	var slideStuff = {
+		slide1: {
+			slideNum: 'file:///Volumes/AshCan/Z_WORK/SITE/%20LOOKBOOKS/4.25_Summer/4.25_Summer_1.html#/slide-1',
+			designer:  'BIBHU MOHAPATRA',
+			item: 'Amaranth Lotus Gown',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/amaranthlotusgown',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic1.jpg'
+		},
+		slide2: {
+			slideNum: 'file:///Volumes/AshCan/Z_WORK/SITE/%20LOOKBOOKS/4.25_Summer/4.25_Summer_1.html#/slide-2',
+			designer:  'BIBHU MOHAPATRA',
+			item: 'Bengal Tiger Dress',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/bengaltigerdress',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic2.jpg'
+		},
+		slide3: {
+			slideNum: '/slide-3',
+			designer:  ['BIBHU MOHAPATRA', 'RANJANA KHAN'],
+			item: ['Zemu Glacier Gown', 'Reflecting Pool Necklace'],
+			productURL: ['http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/zemuglaciergown', 'http://www.renttherunway.com/shop/designers/short_jewelry/reflectingpoolnecklace'],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic3.jpg'
+		},
+		slide4: {
+			slideNum: '/slide-4',
+			designer:  'BIBHU MOHAPATRA',
+			item: 'Mumbai At Night Dress',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/mumbainightdress',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic4.jpg'
+		},
+		slide5: {
+			slideNum: '/slide-5',
+			designer:  'BIBHU MOHAPATRA',
+			item: 'Sagar Island Dress',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/sagarislanddress0',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic5.jpg'
+       },
+       slide6: {
+			slideNum: '/slide-6',
+			designer:  'BIBHU MOHAPATRA',
+			item: 'Himalayan Panther Gown',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/himalayanpanthergown',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic6.jpg'
+       },
+       slide7: {
+			slideNum: '/slide-7',
+			designer:  '',
+			item: '',
+			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/sagarislanddress0',
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic7.jpg'
+       }
+   	};
+
+   
+
+	//==========================================
+	var leftPos;
+	var slideNum;
+	var productURL;
+	var designerTxt;
+	var captionTxt;
+	var slideBkg;
+	var slideshowWindow;
+	var slideshowLIs;
+	var leftArrowWrap;
+	var rightArrowWrap;
+	var slideWidth;
+	var slideshowWidth;
+	var captionBox;
+	var url;
+	var hash;
+
+	//------------------------------------------
+
+	function buildSlideshow() {
+		for( key in slideStuff ) {
+			
+			slideNum = slideStuff[ key ].slideNum;
+			productURL = slideStuff[ key ].productURL;
+			designerTxt = slideStuff[ key ].designer;
+			captionTxt = slideStuff[ key ].item;
+			slideBkg = slideStuff[ key ].slideBkg;
+
+			/* If there is no caption text, do not show caption box */
+			if ( captionTxt == '' ) {
+
+				captionBox = '';
+
+			/* If there is more than one designer and item, then put caption on two lines */
+			} else if ( designerTxt.length == 2 ) {
+				captionBox = '<div class="caption"><a href="' + productURL[0] + '"><span class="designerLinkTxt">' + designerTxt[0] + '&nbsp;</span><span class="captionLinkTxt">' + captionTxt[0] + '</span></a><br/><a href="' + productURL[1] + '"><span class="designerLinkTxt">' + designerTxt[1] + '&nbsp;</span><span class="captionLinkTxt">' + captionTxt[1] + '</span></a></div>';	
+			} else {
+				captionBox = '<div class="caption"><a class="productLink" href="' + productURL + '"><span class="designerLinkTxt">' + designerTxt + '&nbsp;</span><span class="captionLinkTxt">' + captionTxt + '</span></a></div>';
+			}
+
+			slideshowLIs += '<li class="slide" style="background: url(' + slideBkg + ')">' + captionBox + '</li>';
+		}
+		slideshowWindow.append( slideshowLIs );
+
+
+
+	}
+
+	//------------------------------------------
+	leftPos = parseInt( $('#slideshowWindow').css('left') );/* converts value of string to number */
+	num = 1;
+	slideshowLIs = '';
+	slideshowWindow = $( '#slideshowWindow' );
+	leftArrowWrap = $( '#leftArrowWrap' );
+	rightArrowWrap = $( '#rightArrowWrap' );
+	slideWidth = 990;
+	slideshowWidth = slideshowWindow.width();
+
+	
+	//------------------------------------------
+	function animateSlide() {
+		$('.caption').fadeTo('opacity', '0');
+		$( slideshowWindow ).animate({left: leftPos}, 'slow', function() {	
+			$('.caption').fadeTo('opacity', '.8');
+		});
+	}
+	
+	//------------------------------------------
+	function buildThumbs() {
+
+		var thumbs = '';
+		var thumbSet = {
+
+			/* =================== PASTE EXCEL FORMULA HERE ================ */
+			/*****************************************************************/
+			thumb1: {
+				src: 'Ashley',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http://www.google.com'
+			},
+			thumb2: {
+				src: 'Sarah',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http://www.yahoo.com'
+			},
+			thumb3: {
+				src: 'Julie',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb4: {
+				src: 'Bro',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb5: {
+				src: 'James',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb6: {
+				src: 'Jenny',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb7: {
+				src: 'Jenny',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb8: {
+				src: 'Jenny',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb9: {
+				src: 'Jenny',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			},
+			thumb10: {
+				src: 'Jenny',
+				designer: 'Bibhu',
+				dress: 'blah',
+				rent: 'rent',
+				buy: 'buy',
+				url: 'http:'
+			}
+		}
+		//thumb6: {src: 'Jenny',designer: 'Bibhu',dress: 'blah',rent: 'rent',buy: 'buy',url: 'http:'}
+
+
+		for ( j in thumbSet ) {
+			$( '#allThumbs' ).append( '<div class="thumb">' + thumbSet[j].src + '</div>' );
+		}	
+	}
+
+	function getHash() { 
+		hash = document.location.hash.split('#')[1];
+		alert(hash);
+
+		/*
+			http://www.net-a-porter.com/magazine/182/3
+		*/
+
+
+		/*
+			https://developer.mozilla.org/en-US/docs/DOM/Manipulating_the_browser_history
+
+			var stateObj = { foo: "bar" };
+			history.pushState(stateObj, "page 2", "bar.html");
+
+			This will cause the URL bar to display http://mozilla.org/bar.html, but won't cause the browser to load bar.html or even check that bar.html exists.
+
+			var currentState = history.state;
+		*/
+
+		/*
+			var trackCode = "/#" + urlencode($("myDiv").text());
+			window.location.href = "http://www.piano-chords.net" + trackCode;
+			pageTracker._trackPageview(trackCode);
+		*/
+
+		/* 
+			http://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
+
+			window.history.pushState('page2', 'Title', '/page2.php');
+			history.replaceState();
+		*/
+
+
+		//window.location = "http://" + window.location.host + slideNUM[ key ];
+		//alert(slideNUM[ key ]);
+	}
+	
+
+
+
+	//------------------------------------------
+	function showBothArrows() {
+		$( leftArrowWrap, rightArrowWrap ).css('display', 'block');
+	}
+
+	function hideCaption() {
+		$('.caption').hide();
+	}
+
+
+
+
+
+
+	//------------------------ON DOC READY
+	$(function() {		
+
+		buildThumbs();
+		buildSlideshow();
+
+		
+		//------------------------------------------
+		/* if clicking right */
+		$( rightArrowWrap ).click(function() {
+			leftPos -= slideWidth;
+			hideCaption();
+			animateSlide();
+
+			/* and on first slide */
+			if ( leftPos == 0 ) {
+				$(leftArrowWrap).hide();
+			} 
+			/* and on middle slide */
+			if ( leftPos < 0 ) {
+				showBothArrows();
+			}
+			/* and on last slide */
+			if ( leftPos == -(slideshowWidth - slideWidth) ) {
+				$(rightArrowWrap).hide();
+			}
+		});
+
+
+		/* if clicking left */
+		$( leftArrowWrap ).click(function() {
+
+			leftPos += slideWidth;
+			hideCaption();
+			animateSlide();
+
+			/* and on first slide */
+			if ( leftPos == 0 ) {
+				$(leftArrowWrap).hide();
+			}
+			/* and on middle slide */
+			if ( leftPos < 0 ) {
+				showBothArrows();
+			}
+			/* and on last slide */
+			if ( leftPos >= -(slideshowWidth - slideWidth) ) {
+				$(rightArrowWrap).show();
+			}
+
+		});	
+
+	});	
+
+</script>
