@@ -236,57 +236,50 @@
 <script type="text/javascript">
 	
 	//==========================================
-	var slideStuff = {
-		slide1: {
-			slideNum: '1',
+	var slideStuff = [
+		{
 			designer:  'BIBHU MOHAPATRA',
 			item: 'Amaranth Lotus Gown',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/amaranthlotusgown',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic1.jpg'
 		},
-		slide2: {
-			slideNum: '2',
+		{
 			designer:  'BIBHU MOHAPATRA',
 			item: 'Bengal Tiger Dress',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/bengaltigerdress',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic2.jpg'
 		},
-		slide3: {
-			slideNum: '3',
+		{
 			designer:  ['BIBHU MOHAPATRA', 'RANJANA KHAN'],
 			item: ['Zemu Glacier Gown', 'Reflecting Pool Necklace'],
 			productURL: ['http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/zemuglaciergown', 'http://www.renttherunway.com/shop/designers/short_jewelry/reflectingpoolnecklace'],
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic3.jpg'
 		},
-		slide4: {
-			slideNum: '4',
+		{
 			designer:  'BIBHU MOHAPATRA',
 			item: 'Mumbai At Night Dress',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/mumbainightdress',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic4.jpg'
 		},
-		slide5: {
-			slideNum: '5',
+		{
 			designer:  'BIBHU MOHAPATRA',
 			item: 'Sagar Island Dress',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/sagarislanddress0',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic5.jpg'
        },
-       slide6: {
-			slideNum: '6',
+       {
 			designer:  'BIBHU MOHAPATRA',
 			item: 'Himalayan Panther Gown',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/himalayanpanthergown',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic6.jpg'
        },
-       slide7: {
-			slideNum: '7',
+       {
 			designer:  '',
 			item: '',
 			productURL: 'http://www.renttherunway.com/shop/designers/bibhumohapatra_dresses/sagarislanddress0',
 			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Sp13_Bibhu_Lookbook_pic7.jpg'
        }
-   	};
+   	];
 
    
 
@@ -319,6 +312,16 @@
 			captionTxt = slideStuff[ key ].item;
 			slideBkg = slideStuff[ key ].slideBkg;
 
+			var html = [
+				'<div class="caption"><a href="',
+				productURL,
+				'"><span class="designerLinkTxt">',
+			];
+
+			if(desingerText.length = 2){
+				html.push('')
+			}
+
 			/* If there is no caption text, do not show caption box */
 			if ( captionTxt == '' ) {
 
@@ -333,7 +336,7 @@
 
 			slideshowLIs += '<li class="slide" style="background: url(' + slideBkg + ')"><a id="' + slideNum + '">' + captionBox + '</a></li>';
 		}
-		slideshowWindow.append( slideshowLIs );
+		slideshowWindow.append(html.join(''));
 
 
 
@@ -458,26 +461,53 @@
 	
 	//------------------------------------------
 	function showBothArrows() {
-		$( leftArrowWrap, rightArrowWrap ).css('display', 'block');
+		$( leftArrowWrap, rightArrowWrap ).show();
 	}
 
 	function hideCaption() {
 		$('.caption').hide();
 	}
 
-
-
-
-
 	var page = null;
-	var numberOfSlides = 6;
 
+	function showSlide(page, goingRight, animate){
+		if (page > slideStuff.length){
+			page = slideStuff.length -1;
+			return;
+		}
+		else if(page < 0){
+			page = 0;
+			return;
+		}
+
+	    window.location.hash = page;
+
+	    // If animate call animate slide
+
+	    // Else just make the correct slide visible
+
+	    // Slide animation / DOM modification logic
+	    if (page > 0){
+	    	$( '#leftArrowWrap').show();
+			$( '#leftArrowWrap').attr( 'href', '#' + (page - 1));
+		}
+		else {
+			$( '#leftArrowWrap').hide();
+		}
+
+		if (page < slideStuff.length - 1){
+			$( '#rightArrowWrap').attr( 'href', '#' + (page + 1));
+			$( '#rightArrowWrap').show();
+		}
+		else {
+			$( '#rightArrowWrap').hide();
+		}
+	}
 
 	//------------------------ON DOC READY
 	$(function() {		
-
+	    buildSlideshow();
 		buildThumbs();
-		count = 1;
 
 		//------------------------------------------
 		var hash = window.location.hash;
@@ -487,82 +517,17 @@
 	    } else {
 	        page = hash % numberOfSlides;
 	    }
-	    showSlide(page);
+	    showSlide(page, true, false);
 
-	    //------------------------------------------
-		function showSlide(page){
-		    window.location.hash = page;
-
-		    // Slide animation / DOM modification logic
-		    buildSlideshow();
-		}
-		
-		
-		//------------------------------------------
-		function test( direction ) {
-			if( direction == 'next' ) {
-				count++;
-			} else if ( direction == 'prev') {
-				count--;
-			}
-
-			/* where the click event takes you */
-			$( 'a.arrowLink').attr( 'href', '#' + slideStuff[ 'slide'+count ].slideNum );
-		}
-
-
-
-		//------------------------------------------
-		/* if clicking right */
-		$( rightArrowWrap ).click(function( e ) {
-			leftPos -= slideWidth;
-			hideCaption();
-			animateSlide();
-
-			/* and on first slide */
-			if ( leftPos == 0 ) {
-				$(leftArrowWrap).hide();
-
-			} 
-			/* and on middle slide */
-			if ( leftPos < 0 ) {
-				showBothArrows();
-			}
-			/* and on last slide */
-			if ( leftPos == -(slideshowWidth - slideWidth) ) {
-				$(rightArrowWrap).hide();
-			}
-			test( 'next' );
+		$(leftArrowWrap).click(function(){
+			showSlide(--page, false, true);
 		});
 
-
-		/* if clicking left */
-		$( leftArrowWrap ).click(function( e ) {
-
-			leftPos += slideWidth;
-			hideCaption();
-			animateSlide();
-			
-			/* and on first slide */
-			if ( leftPos == 0 ) {
-				$(leftArrowWrap).hide();
-			}
-			/* and on middle slide */
-			if ( leftPos < 0 ) {
-				showBothArrows();
-			}
-			/* and on last slide */
-			if ( leftPos >= -(slideshowWidth - slideWidth) ) {
-				$(rightArrowWrap).show();
-			}
-			test( 'prev' );
-		});	
+		$(rightArrowWrap).click(function(){
+			showSlide(++page, true, true);
+		});
 
 	});	
-
-
-	
-	
 
 </script>
 
