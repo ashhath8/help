@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<head>
+<!--[if IE]>
+	<style type="text/css">
+
+	   .hl-lb-product .hl-lb-product-details  { 
+			background: transparent;
+
+			background-color:white;
+			filter: alpha(opacity=85); /* For IE8 and earlier */ 
+
+			 
+			zoom:1;
+			font-weight: bold;
+		}
+	</style>
+<![endif]-->
+
+<style>
+
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.floatL {float: left;}
+	.floatR {float: right;}
+
+	/* ------------------Caption Styles */
+	
+	.topL {
+		top: 0px; 
+		left: 0px;
+		text-align: left;
+	}
+	.topR {
+		top: 0px; 
+		right: 0px;
+		text-align: right;
+	}
+	.bottomR {
+		bottom: 0px;
+		right: 0px;
+		text-align: right;
+	}
+
+	div.grayTxt a span {color: #000001;}
+	div.whiteTxt a span {color: #eae8e8;}
+
+	div.grayTxt a:hover span,
+	div.whiteTxt a:hover span {color: #d90077;}
+
+	/* ------------------END */
+
+	#lookbookMainWrapper {
+		width: 990px;
+		margin: 25px auto;
+	}
+
+
+	#browseMoreTxtLink {
+		font-family: ProximaNova-Semibold, Arial, sans-serif; /* REQUIRES TYPEKIT SCRIPT */
+		font-size: 11px;
+		color: #000001;
+		position: absolute;
+		top: 382px;
+		left: 240px;
+		z-index: 999;
+		display: none;
+		border-bottom: 1px solid #7f7f7f;
+	}
+	#lookbookMainWrapper div#browseMoreTxtLink a:link {color: #000001; text-decoration: none;}
+	#lookbookMainWrapper div#browseMoreTxtLink a:visited {color: #000001;}
+	#lookbookMainWrapper div#browseMoreTxtLink a:hover {color: white; text-decoration: none; border-bottom: 1px solid white;} 
+	#lookbookMainWrapper div#browseMoreTxtLink a:active {color:white;} 
+
+	/*********** END: Header ************/
+
+
+
+	/*********** START: Slideshow Gallery Images ************/
+	#slideShifter {
+		width: 990px;
+		height: 550px;
+		position: relative;
+		overflow: hidden;
+		left: 0px;
+		margin-bottom: 15px;
+	}
+	ul#slideshowWindow {
+		width: 7920px;
+		height: 550px;
+		position: absolute;
+		z-index: 0;
+		left: 0px;
+		list-style-type: none;
+	}
+	.slide {
+		width: 990px;
+		height: 550px;
+		float: left;
+		position: relative;
+	}
+	/*********** END: Slideshow Gallery Images ************/
+
+
+	/*********** START: Slideshow Captions ************/
+	#lookbookMainWrapper a:hover {color: white; text-decoration: none;} 
+	#lookbookMainWrapper a:active {color:white;} 
+
+	.caption {
+		padding: 8px 15px;
+		position: absolute;
+		line-height: 12px;
+		
+	}
+
+	.caption span.captionLinkTxt {
+		font-family: FreightDispProMedium-Italic, serif; /* REQUIRES TYPEKIT SCRIPT */
+		font-size: 12px;
+		text-align: left;
+		display: inline-block;
+	}
+	.caption span.designerLinkTxt {
+		font-family: ProximaNova-Regular, Arial, sans-serif; /* REQUIRES TYPEKIT SCRIPT */
+		font-size: 10px;
+		text-align: left;
+		display: inline-block;
+	}
+	/*********** END: Slideshow Captions ************/
+
+
+
+	/*********** START: Slideshow Arrows ************/
+	.navArrow {
+		width: 40px;
+		height: 94px;
+		position: absolute;
+		top: 225px;
+		z-index: 100;
+	}
+
+	.arrowLink {
+		width: 40px;
+		height: 94px;
+		display: block;
+	}
+	
+	#leftArrowWrap {
+		display: none;
+		left: 0px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -66px -16px;
+	}
+	#leftArrowWrap:hover {
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -66px -122px;
+	}
+	#rightArrowWrap {
+		left: 950px;
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -14px -16px;
+	}
+	#rightArrowWrap:hover {
+		background: url("http://cdn.rtrcdn.com/sites/default/files/bibhu_sprite_7.png") -13px -122px;
+	}
+	/*********** END: Slideshow Arrows ************/
+
+
+	#thumbWrapper {
+		width: 990px;
+	}
+
+	.thumb {
+		width: 183px;
+		height: 275px;
+		float: left;
+		margin-right: 15px;
+		margin-bottom: 15px;
+	}
+
+	#dressThumbsWrapper {
+		width: 990px;
+		height: 594px;
+	}
+
+	#dressThumbsWrapper .thumbDisplay,
+	#accessoryThumbsWrapper .thumbDisplay {
+		display: none;
+	}
+
+	.txt-designer {
+		margin-bottom: 3px;
+		color: black;
+		font-size: 12px;
+		text-transform: capitalize;
+		font-family: ProximaNova-Semibold, Arial, sans-serif;
+	}
+
+	.thumb-info {
+		color: black;
+		font-family: ProximaNova-Regular, Arial, sans-serif;
+		font-size: 11px;
+		line-height: 14px;
+
+	}
+
+	.thumb-rental {
+		line-height: 14px;
+		color: #6b6969 !important;
+		font-size: 11px;
+	}
+
+	.thumb-price {
+		background-color: #d90077;
+		font-family: ProximaNova-Regular, Arial, sans-serif;
+		width: 100px;
+		height: 20px;
+		line-height: 22px;
+		color: white;
+		margin: 20px auto 0px auto;
+	}
+
+
+
+	.hl-lb-product {
+		display:inline-block;
+		position:relative;
+		font-size: 11px;
+		text-align: center;
+		margin-bottom: 20px;
+		margin-right: 14px;
+		overflow: hidden;
+		float: left;
+		font-family: ProximaNova-Semibold, Arial, sans-serif;
+	}
+
+	.hl-lb-product, .hl-lb-product img, .hl-lb-product-details {
+		width: 183px;
+		height: 275px;
+	}
+
+	.hl-lb-product .hl-lb-product-details {
+		display: none;
+		position: absolute;
+		top:0;
+		left:0;
+		padding-top:75px;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	.hl-lb-product:hover .hl-lb-product-details {
+		display: block;
+	}
+
+	#browseMore {
+		width: 990px;
+		height: 76px;
+		margin-bottom: 15px;
+	}
+	
+	.browseMoreLINK {
+		width: 990px;
+		height: 76px;
+		display: block;
+	}
+
+	#completeTheLook {
+		width: 990px;
+		height: 76px;
+		background: url(http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_completeLook.jpg);
+	}
+	#completeTheLook:hover {
+		background: url(http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_completeLook-hover.jpg);
+	}
+	
+	#completeTheLookLINK {
+		width: 990px;
+		height: 76px;
+		display: block;
+	}
+
+	#accessoryThumbsWrapper {
+		width: 990px;
+		height: 275px;
+		margin-bottom: 25px;
+	}
+
+	
+
+</style>
+</head>
+
+
+<!-- ========================================== -->
+<!-- ========================================== -->
+
+
+<body>
+<div id="lookbookMainWrapper">
+	
+	<div id="slideShifter">
+		<div id="browseMoreTxtLink"><a href="#1">BROWSE THE LOOKBOOK</a></div>
+		
+		<!-- previous arrow -->
+		<div id="leftArrowWrap" class="navArrow">
+			<a href="#" class="arrowLink" title="Previous"></a>
+		</div>
+
+		<!-- next arrow -->
+		<div id="rightArrowWrap" class="navArrow">
+			<a href="#" class="arrowLink" title="Next"></a>
+		</div>
+		
+		<!-- slideshow -->
+		<ul id="slideshowWindow"></ul>
+
+	</div>
+
+
+
+	<div id="browseMore"><a href="#" class="browseMoreTxtLink"></a></div>
+
+
+
+	<div id="dressThumbsWrapper">
+
+		<div id="slide0DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/nicolemiller_dresses/hilodreamgown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nicole_miller_hi_lo_dream_gown_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nicole Miller</div><div class="thumb-info">Hi Lo Dream Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/elizabethandjames_dresses/monetflowermaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_elizabeth_and_james_monet_flower_maxi_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Elizabeth and James</div><div class="thumb-info">Monet Flower Maxi</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $665</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/nigeriansanddress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_nigerian_sand.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Nigerian Sand Dress</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $745</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/nicolemiller_dresses/hiloflirtgown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nicole_miller_hi_lo_flirt_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nicole Miller</div><div class="thumb-info">Hi Lo Flirt Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bcbgmaxazria_dresses/salsaverdegown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_bcbg_salsa_verde_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">BCBGMAXAZRIA</div><div class="thumb-info">Salsa Verde Gown</div><div class="thumb-rental">Rent for $110</div><div class="thumb-price">Retail $298</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/gryphon_dresses/fuchsiaflamencodress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_gryphon_fuchsia_flamenco.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Gryphon</div><div class="thumb-info">Fuchsia Flamenco Dress</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bcbgmaxazria_dresses/kendalrufflegown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_bcbg_kendal_ruffled_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">BCBGMAXAZRIA</div><div class="thumb-info">Kendal Ruffle Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $298</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/twelfthstreetcynthiavincent_dresses/backtrackmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_twelfth_street_by_cynthia_vincent_back_on_track_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Twelfth Street by Cynthia Vincent</div><div class="thumb-info">Back on Track Maxi</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $355</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/elizabethandjames_dresses/polynesiansunsetgown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_elizabeth_and_james_polynesian_sunset_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Elizabeth and James</div><div class="thumb-info">Polynesian Sunset Gown</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $665</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/hautehippie_dresses/electricrosedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_haute_hippie_electric_rose.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Haute Hippie</div><div class="thumb-info">Electric Rose Dress</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $495</div></div></a>
+		</div>
+
+		<div id="slide1DressThumbs" class="thumbDisplay"><!-- missing one dress in google doc -->
+			<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/junedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_june.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">June Dress</div><div class="thumb-rental">Rent for $70</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/twelfthstreetcynthiavincent_dresses/backtrackmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_twelfth_street_by_cynthia_vincent_back_on_track_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Twelfth Street by Cynthia Vincent</div><div class="thumb-info">Back on Track Maxi</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $355</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/dianevonfurstenberg_dresses/mintmanhattanshift?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_diane_von_furstenberg_mint_in_manhattan.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Diane von Furstenberg</div><div class="thumb-info">Mint in Manhattan Shift</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $545</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/thakoon_dresses/letsflyawaydress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_thakoon_lets_fly_away.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Thakoon</div><div class="thumb-info">Lets Fly Away Dress</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $920</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/erinerinfetherston_dresses/blueseamistdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_erin_fehterston_sea_mist_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">ERIN by erin fetherston</div><div class="thumb-info">Blue Sea Mist Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $245</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/emmacook_dresses/sosurrealshift?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_emma_cook_so_surreal_shift.jpg"><div class="hl-lb-product-details"><div class="txt-designer">EMMA COOK</div><div class="thumb-info">So Surreal Shift</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $460</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/moschinocheapandchic_dresses/seasaltsummerdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_moschino_cheap-chic_sea_salt_summer.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Moschino Cheap And Chic</div><div class="thumb-info">Sea Salt Summer Dress</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $795</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rahulmishra_dresses/stargazershift?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_rahul_mishra_stargazer_shift.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Rahul Mishra</div><div class="thumb-info">Stargazer Shift</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $695</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/lillypulitzer_dresses/elissedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_lilly_pulitzer_elisse.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Lilly Pulitzer</div><div class="thumb-info">Elisse Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $228</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/trinaturk_dresses/walkegyptiandress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_trina_turk_walk_like_an_egyptian.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Trina Turk</div><div class="thumb-info">Walk Like An Egyptian Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $348</div></div></a>
+		</div>
+
+		<div id="slide2DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/erinerinfetherston_dresses/ridingwavesheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_erin_fetherston_riding_the_wave_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">ERIN by erin fetherston</div><div class="thumb-info">Riding the Wave Sheath</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $225</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rahulmishra_dresses/thardesertwindsheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_rahul_mishra_thar_desert_wind_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Rahul Mishra</div><div class="thumb-info">Thar Desert Wind Sheath</div><div class="thumb-rental">Rent for $115</div><div class="thumb-price">Retail $795</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/hervéléger_dresses/letsgetlouddress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_herve_leger_lets_get_loud.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Hervé Léger</div><div class="thumb-info">Lets Get Loud Dress</div><div class="thumb-rental">Rent for $175</div><div class="thumb-price">Retail $1490</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/hervéléger_dresses/vipaccessdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_herve_leger_vip_access.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Hervé Léger</div><div class="thumb-info">VIP Access Dress</div><div class="thumb-rental">Rent for $225</div><div class="thumb-price">Retail $2300</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/versacecollection_dresses/arcadegamesdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_versace_collection_arcade_games.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Versace Collection</div><div class="thumb-info">Arcade Games Dress</div><div class="thumb-rental">Rent for $135</div><div class="thumb-price">Retail $895</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rvn_dresses/egyptianprismdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_rvn_egyptian_prism.jpg"><div class="hl-lb-product-details"><div class="txt-designer">RVN</div><div class="thumb-info">Egyptian Prism Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/dianevonfurstenberg_dresses/tootsiedotdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_diane_von_furstenberg_tootsie_dot.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Diane von Furstenberg</div><div class="thumb-info">Tootsie Dot Dress</div><div class="thumb-rental">Rent for $70</div><div class="thumb-price">Retail $325</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/robertrodriguezcollection_dresses/capsleeveswirlmini?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_robert_rodriguez_collection_cap_sleeve_swirl_mini.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Robert Rodriguez Collection</div><div class="thumb-info">Cap Sleeve Swirl Mini</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $600</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rvn_dresses/gardenedendress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_rvn_garden_of_eden.jpg"><div class="hl-lb-product-details"><div class="txt-designer">RVN</div><div class="thumb-info">Garden of Eden Dress</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $475</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/theory_dresses/orinthiaikatdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_theory_orinthia_ikat.jpg"><div class="hl-lb-product-details"><div class="txt-designer">theory</div><div class="thumb-info">Orinthia Ikat Dress</div><div class="thumb-rental">Rent for $60</div><div class="thumb-price">Retail $338</div></div></a>
+		</div>
+
+		<div id="slide3DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/mlmoniquelhuillier_dresses/everafterdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_monique_lhuillier_ever_after.jpg"><div class="hl-lb-product-details"><div class="txt-designer">ML Monique Lhuillier</div><div class="thumb-info">Ever After Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $440</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/nicolemiller_dresses/fairladydress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nicole_miller_a_fair_lady_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nicole Miller</div><div class="thumb-info">A Fair Lady Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $420</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/allisonparris_dresses/blushjuliadress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_allison_parris_blush_julia.jpg"><div class="hl-lb-product-details"><div class="txt-designer">allison parris</div><div class="thumb-info">Blush Julia Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $335</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/aliro_dresses/sweetvirginiascoopdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_ali_ro_sweet_virginia_scoop.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Ali Ro</div><div class="thumb-info">Sweet Virginia Scoop Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $298</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/robertrodriguezcollection_dresses/peonylaceshift?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_robert_rodriguez_collection_peony_lace_shift.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Robert Rodriguez Collection</div><div class="thumb-info">Peony Lace Shift</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/deardiarysheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_dear_diary_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Dear Diary Sheath</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/msgm_dresses/watermelonseeddress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_msgm_watermelon_seed.jpg"><div class="hl-lb-product-details"><div class="txt-designer">MSGM</div><div class="thumb-info">Watermelon Seed Dress</div><div class="thumb-rental">Rent for $135</div><div class="thumb-price">Retail $995</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/annasui_dresses/daisypinwheeldress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_anna_sui_daisy_pinwheel.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Anna Sui</div><div class="thumb-info">Daisy Pinwheel Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $389</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/lacececliedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_lace_cecile.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Lace Ceclie Dress</div><div class="thumb-rental">Rent for $70</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/lillypulitzer_dresses/islandbreezeshift?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_lilly_pulitzer_island_breeze_shift.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Lilly Pulitzer</div><div class="thumb-info">Island Breeze Shift</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $278</div></div></a>
+		</div>
+
+		<div id="slide4DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/nicolemiller_dresses/floralutopiasheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nicole_miller_floral_utopia_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nicole Miller</div><div class="thumb-info">Floral Utopia Sheath</div><div class="thumb-rental">Rent for $70</div><div class="thumb-price">Retail $410</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/milly_dresses/indigoingyourwaydress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_milly_indigoing_your_way.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Milly</div><div class="thumb-info">Indigoing Your Way Dress</div><div class="thumb-rental">Rent for $70</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/magnoliagardensdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_magnolia_gardens.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Magnolia Gardens Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/matthewwilliamson_dresses/weepingblossomdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_matthew_williamson_weeping_blossom_sheath_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Matthew Williamson</div><div class="thumb-info">Weeping Blossom Dress</div><div class="thumb-rental">Rent for $175</div><div class="thumb-price">Retail $995</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/trinaturk_dresses/felanadress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_trina_turk_felana.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Trina Turk</div><div class="thumb-info">Felana Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $248</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/aliro_dresses/barosadress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_ali_ro_barossa.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Ali Ro</div><div class="thumb-info">Barosa Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $268</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/slatewillow_dresses/derekdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_slate_and_willow_derek.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Slate & Willow</div><div class="thumb-info">Derek Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $298</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/trinaturk_dresses/canaryhydrangeadress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_trina_turk_canary_hydgrangeas.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Trina Turk</div><div class="thumb-info">Canary Hydrangea Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $348</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/floralfrancescasheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_floral_francesca_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Floral Francesca Sheath</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $375</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/lillypulitzer_dresses/frejadress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_lilly_pulitzer_freja.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Lilly Pulitzer</div><div class="thumb-info">Freja Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $188</div></div></a>
+		</div>
+
+		<div id="slide5DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/alexapeplumdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_alexa_peplum.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Alexa Peplum Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $340</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/zspokezacposen_dresses/whitesnowdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_z_spoke_white_as_snow.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Z Spoke Zac Posen</div><div class="thumb-info">White As Snow Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $450</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/aliro_dresses/jolenedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_ali_ro_jolene_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Ali Ro</div><div class="thumb-info">Jolene Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $258</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/philosophydialbertaferretti_dresses/whitewillowsheath?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_philosophy_di_alberta_ferretti_white_willow_sheath.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Philosophy Di Alberta Ferretti</div><div class="thumb-info">White Willow Sheath</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $695</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/calvinkleincollection_dresses/pravatdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_calvin_klein_pravat.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Calvin Klein Collection</div><div class="thumb-info">Pravat dress</div><div class="thumb-rental">Rent for $300</div><div class="thumb-price">Retail $3495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/versacecollection_dresses/icandobetterdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_versace_collection_i_can_do_better_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Versace Collection</div><div class="thumb-info">I Can Do Better Dress</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $995</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/mlmoniquelhuillier_dresses/foundonedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_monique_lhuillier_found_the_one.jpg"><div class="hl-lb-product-details"><div class="txt-designer">ML Monique Lhuillier</div><div class="thumb-info">Found The One Dress</div><div class="thumb-rental">Rent for $85</div><div class="thumb-price">Retail $398</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/lillypulitzer_dresses/jordandress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_lilly_pulitzer_jordan.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Lilly Pulitzer</div><div class="thumb-info">Jordan Dress</div><div class="thumb-rental">Rent for $50</div><div class="thumb-price">Retail $238</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/cushnieetochs_dresses/whiteshockwavedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_cushnie_et_ochs_white_shockwave.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Cushnie Et Ochs</div><div class="thumb-info">White Shockwave Dress</div><div class="thumb-rental">Rent for $175</div><div class="thumb-price">Retail $1295</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/openingceremony_dresses/cookiecutterperfectiondress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_opening_ceremony_cookie_cutter_perfection.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Opening Ceremony</div><div class="thumb-info">Cookie Cutter Perfection Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $460</div></div></a>
+		</div>
+
+		<div id="slide6DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/issa_dresses/oahuflowermaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_issa_oahu_flower_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Issa</div><div class="thumb-info">Oahu Flower Maxi</div><div class="thumb-rental">Rent for $150</div><div class="thumb-price">Retail $725</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/trinaturk_dresses/anargosadesertmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_trina_turk_anargosa_desert_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Trina Turk</div><div class="thumb-info">Anargosa Desert Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $458</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/yumikim_dresses/snowmountainmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_yumi_kim_snow_mountain_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Yumi Kim</div><div class="thumb-info">Snow Mountain Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $385</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/twelfthstreetcynthiavincent_dresses/tribalceremonygown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_twelfth_street_by_cynthia_vincent_tribal_ceremony_gown_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Twelfth Street by Cynthia Vincent</div><div class="thumb-info">Tribal Ceremony Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $435</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/matthewwilliamson_dresses/gypsydancergown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_matthew_williamson_gypsy_dancer_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Matthew Williamson</div><div class="thumb-info">Gypsy Dancer Gown</div><div class="thumb-rental">Rent for $350</div><div class="thumb-price">Retail $2300</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/thakoon_dresses/centralparkboatridemaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_thakoon_central_park_boatride_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Thakoon</div><div class="thumb-info">Central Park Boatride Maxi</div><div class="thumb-rental">Rent for $175</div><div class="thumb-price">Retail $1240</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/nachiketbarve_dresses/versovabeachmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nachiket_barve_versova_beach_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nachiket Barve</div><div class="thumb-info">Versova Beach Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $795</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/issa_dresses/cosmoyachtmaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_issa_cosmo_on_a_yacht_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Issa</div><div class="thumb-info">Cosmo On A Yacht Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $613</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/shoshanna_dresses/mabreymaxidress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_shoshanna_mabrey_maxi_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Shoshanna</div><div class="thumb-info">Mabrey Maxi Dress</div><div class="thumb-rental">Rent for $125</div><div class="thumb-price">Retail $485</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/nachiketbarve_dresses/mahimbaymaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_nachiket_barve_mayhim_bay_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Nachiket Barve</div><div class="thumb-info">Mahim Bay Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $795</div></div></a>
+		</div>
+
+		<div id="slide7DressThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/craveyoumaxi?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_crave_you_maxi.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Crave You Maxi</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $595</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/maitaidress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_mai_tai.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Mai Tai Dress</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $374</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/highlightmylifedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_highlight_of_my_life.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Highlight of My Life Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $473</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/mykonosmermaidgown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_mykonos_mermaid_gown_detail1_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Mykonos Mermaid Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $595</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/tidalwavedress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_tidal_wave_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Tidal Wave Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $295</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/sunnydaysdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_sunny_days.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Sunny Days Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $295</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/foreverminegown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_forever_mine_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Forever Mine Gown</div><div class="thumb-rental">Rent for $135</div><div class="thumb-price">Retail $395</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/cosmicauragown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_cosmic_aura_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Cosmic Aura Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $550</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/onesideddreamdress?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_one_sided_dream.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">One Sided Dream Dress</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/halstonheritage_dresses/argentinasungown?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/product_images/dress_halston_heritage_argentina_sun_gown.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Halston Heritage</div><div class="thumb-info">Argentina Sun Gown</div><div class="thumb-rental">Rent for $100</div><div class="thumb-price">Retail $445</div></div></a>
+		</div>
+
+	</div>
+
+
+
+	<div id="completeTheLook">
+		<a href="http://www.renttherunway.com/category/designers/kennethjaylane" class="browseMoreLINK"></a>
+	</div>
+
+
+
+
+
+	<div id="accessoryThumbsWrapper">
+
+		<div id="slide0AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/tajmahalearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_taj_mahal_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Taj Mahal Earrings</div><div class="thumb-rental">Rent for $30</div><div class="thumb-price">Retail $220</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/goldtexturedbibnecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_polished_gold_textured_bib_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Gold Textured Bib Necklace</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $120</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/ivorygeneshabangle?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_ivory_genesha_bangle_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Ivory Genesha Bangle</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $170</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/crystallizedaquadrops?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_crystallized_aqua_drops_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Crystallized Aqua Drops</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $125</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/goldleafcuff?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_gold_leaf_cuff_1.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Gold Leaf Cuff</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $125</div></div></a>
+		</div>
+
+		<div id="slide1AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/catherineearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_catherine_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Catherine Earrings</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $125</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/regalaffairring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_regal_affair_oval_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Regal Affair Ring</div><div class="thumb-rental">Rent for $30</div><div class="thumb-price">Retail $200</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/cleardropearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_clear_drop.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Clear Drop Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/ladydianabracelet?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_lady_diana_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Lady Diana Bracelet</div><div class="thumb-rental">Rent for $60</div><div class="thumb-price">Retail $495</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/long_jewelry/pearlropenecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_pearl_rope_strand_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Pearl Rope Necklace</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $175</div></div></a>
+		</div>
+
+		<div id="slide2AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/hautecouturecrystalearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_haute_couture_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Haute Couture Crystal Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/polishedcrystalring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_polished_crystal_detail1_1.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Polished Crystal Ring</div><div class="thumb-rental">Rent for $15</div><div class="thumb-price">Retail $100</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/geneshabangle?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_genesha_bangle_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Genesha Bangle</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $170</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/clarioncrystalnecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_clarion_crystal_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Clarion Crystal Necklace</div><div class="thumb-rental">Rent for $75</div><div class="thumb-price">Retail $525</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/decofabearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_deco_fab_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Deco Fab Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+		</div>
+
+		<div id="slide3AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/opulentamberdropearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_opulent_amber_drop_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Opulent Amber Drop Earrings</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $100</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/decofabring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_deco_fab_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Deco Fab Ring</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $112.5</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/goldshadowbibnecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_gold_shadow_bib_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Gold Shadow Bib Necklace</div><div class="thumb-rental">Rent for $95</div><div class="thumb-price">Retail $863</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/renaissancecuff?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_renaissance_cuff_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Renaissance Cuff</div><div class="thumb-rental">Rent for $45</div><div class="thumb-price">Retail $345</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/annecrystalteardrops?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_anne_crystal_teardrops_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Anne Crystal Teardrops</div><div class="thumb-rental">Rent for $30</div><div class="thumb-price">Retail $175</div></div></a>
+		</div>
+
+		<div id="slide4AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/decobackearring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_deco_is_back_892.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Deco is Back Earring</div><div class="thumb-rental">Rent for $15</div><div class="thumb-price">Retail $150</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/sculptedbranchcuff?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_sculpted_branch_cuff_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Sculpted Branch Cuff</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $180</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/long_jewelry/pearlropenecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_pearl_rope_strand_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Pearl Rope Necklace</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $175</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/polishedcrystalring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_polished_crystal_detail1_1.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Polished Crystal Ring</div><div class="thumb-rental">Rent for $15</div><div class="thumb-price">Retail $100</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/deepbluedropearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_deep_blue_drop_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Deep Blue Drop Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+		</div>
+
+		<div id="slide5AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/cleardropearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_clear_drop.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Clear Drop Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/pierced_jewelry/nightoperaearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_night_at_the_opera_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Night at the Opera Earrings</div><div class="thumb-rental">Rent for $15</div><div class="thumb-price">Retail $80</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/picassocrystalcuff?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_picasso_crystal_cuff_1.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Picasso Crystal Cuff</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $550</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/alistnecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_a-list_998.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">A-List Necklace</div><div class="thumb-rental">Rent for $65</div><div class="thumb-price">Retail $538</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/lovemeearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_love_me_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Love Me Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $175</div></div></a>
+		</div>
+
+		<div id="slide6AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/bewitchinghourearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_bewitching_hour_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Bewitching Hour Earrings</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/goldgatorbangle?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_gold_gator_bangle_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Gold Gator Bangle</div><div class="thumb-rental">Rent for $15</div><div class="thumb-price">Retail $90</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/florentinegardennecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_florentine_garden_1.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Florentine Garden Necklace</div><div class="thumb-rental">Rent for $35</div><div class="thumb-price">Retail $225</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/coilsnakering?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_snake_coil_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Coil Snake Ring</div><div class="thumb-rental">Rent for $30</div><div class="thumb-price">Retail $250</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/polishedcrystaldropearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_polished_crystal_drop_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Polished Crystal Drop Earrings</div><div class="thumb-rental">Rent for $40</div><div class="thumb-price">Retail $275</div></div></a>
+		</div>
+
+		<div id="slide7AccessoriesThumbs" class="thumbDisplay">
+			<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/mediterraneanroyaltyearrings?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_mediterranean_royalty_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Mediterranean Royalty Earrings</div><div class="thumb-rental">Rent for $30</div><div class="thumb-price">Retail $220</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/bracelets_jewelry/polishedgoldlinkscuff?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_bracelet_kenneth_jay_lane_polished_gold_links_cuff_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Polished Gold Links Cuff</div><div class="thumb-rental">Rent for $60</div><div class="thumb-price">Retail $450</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/short_jewelry/renaissancestatementnecklace?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_necklace_kenneth_jay_lane_renaissance_statement_2.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Renaissance Statement Necklace</div><div class="thumb-rental">Rent for $45</div><div class="thumb-price">Retail $325</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/rings_jewelry/opaldestinyring?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_ring_kenneth_jay_lane_opal_destiny_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Opal Destiny Ring</div><div class="thumb-rental">Rent for $20</div><div class="thumb-price">Retail $125</div></div></a>
+<a class="hl-lb-product" href="/shop/designers/clipon_jewelry/rubyreddrops?action=lookbook_thumb"><img src="http://cdn.rtrcdn.com/sites/default/files/imagecache/product_teaser/jewelry_earrings_kenneth_jay_lane_ruby_red_drops_0.jpg"><div class="hl-lb-product-details"><div class="txt-designer">Kenneth Jay Lane</div><div class="thumb-info">Ruby Red Drops</div><div class="thumb-rental">Rent for $25</div><div class="thumb-price">Retail $150</div></div></a>
+		</div>
+
+	</div>
+
+</div>
+
+
+<!-- ========================================== -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" DEFER>
+
+	//------------------------------------------
+	var slideStuff = [
+		{//slide1
+			designer:  [
+				'NICOLE MILLER'
+				],
+			item: [
+				'gown',
+				''
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/nicolemiller_dresses/hilodreamgown'
+				
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg1_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'bottomR',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/dress/search/embellishments-asymmetric_hem&sa=D&usg=ALhdy2_TuUm-P33dZj6uxjLf08XCkxsSNQ'
+		},
+		{//slide2
+			designer:  [
+				'TWELFTH STREET BY CYNTHIA VINCENT', 
+				'SHOSHANNA'
+				],
+			item: [
+				'dress', 
+				'dress'
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/twelfthstreetcynthiavincent_dresses/backtrackmaxi',
+				'http://www.renttherunway.com/shop/designers/shoshanna_dresses/junedress'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg2_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'topR',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/dress/search/colors-blue--lengths-mini-mid-thigh_length-knee_length-tea_length&sa=D&usg=ALhdy2-i1Y3ltCkuBLYVKh1_um7WhfwZbw'
+		},
+		{//slide3
+			designer:  [
+				'ERIN BY ERIN FETHERSTON',
+				'RAHUL MISHRA'
+				],
+			item: [
+				'dress',
+				'dress'
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/erinerinfetherston_dresses/ridingwavesheath', 
+				'http://www.renttherunway.com/shop/designers/rahulmishra_dresses/thardesertwindsheath'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg3_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'topR',
+			browseMoreURL: 'http://www.renttherunway.com/dress/search/colors-print--lengths-mini-mid-thigh_length-knee_length-tea_length'
+		},
+		{//slide4
+			designer:  [
+				'ML MONIQUE LHUILLIER',
+				'Menswear by Bonobos'
+				],
+			item: [
+				'dress&nbsp;',
+				''
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/mlmoniquelhuillier_dresses/everafterdress',
+				'http://www.bonobos.com/'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg4_03.jpg',
+			txtColor: 'whiteTxt',
+			txtPos: 'bottomR',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/dress/search/colors-grey-white-brown-red-orange-yellow-green-blue-purple-pink-silver-gold-print--lengths-mini-mid-thigh_length-knee_length-tea_length--embellishments-lace&sa=D&usg=ALhdy2_qYPApe9Lbl_4WNLsPFAW8dZqq3Q'
+		},
+		{//slide5
+			designer:  [
+				'NICOLE MILLER',
+				'SHOSHANNA',
+				'MILLY'
+				],
+			item: [
+				'dress',
+				'dress',
+				'dress'
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/nicolemiller_dresses/floralutopiasheath',
+				'http://www.renttherunway.com/shop/designers/shoshanna_dresses/magnoliagardensdress',
+				'http://www.renttherunway.com/shop/designers/milly_dresses/indigoingyourwaydress'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg5_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'bottomR',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/dress/search/colors-print--lengths-mini-mid-thigh_length-knee_length-tea_length&sa=D&usg=ALhdy28mgTDAEBlCbeS1lbkEt-rwdi8VPQ'
+       },
+       {//slide6
+			designer:  [
+				'SHOSHANNA',
+				'Menswear by Bonobos'
+				],
+			item: [
+				'dress&nbsp;',
+				''
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/shoshanna_dresses/alexapeplumdress',
+				'http://www.bonobos.com/'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg6_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'bottomR',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/dress/search/colors-white--lengths-mini-mid-thigh_length-knee_length-tea_length&sa=D&usg=ALhdy2_swTCt4UfD2u2er8LXZxiIIuBgng'
+       },
+       {//slide7
+			designer:  [
+				'ISSA',
+				'TRINA TURK'
+				],
+			item: [
+				'dress',
+				'dress'
+				],
+			productURL: [
+				'http://www.renttherunway.com/shop/designers/issa_dresses/oahuflowermaxi',
+				'http://www.renttherunway.com/shop/designers/trinaturk_dresses/anargosadesertmaxi'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg7_03.jpg',
+			txtColor: 'grayTxt',
+			txtPos: 'topR',
+			browseMoreURL: 'http://www.renttherunway.com/dress/search/embellishments-maxi'
+       },
+       {//slide8
+			designer:  [
+				'HALSTON HERITAGE',
+				'Menswear by Bonobos'
+				],
+			item: [
+				'dresses',
+				''
+				],
+			productURL: [
+				'http://www.renttherunway.com/designer_detail/halstonheritage/orderBy-descavailablefrom',
+				'http://www.bonobos.com/'
+				],
+			slideBkg: 'http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg8_03.jpg',
+			txtColor: 'whiteTxt',
+			txtPos: 'topL',
+			browseMoreURL: 'http://www.google.com/url?q=http://www.renttherunway.com/designer_detail/halstonheritage&sa=D&usg=ALhdy2-RfZKLVHi0OD4Qh_frS2RG5aAwOQ'
+       }
+   	];
+
+   
+
+
+	//------------------------------------------
+	var page = '';
+	var hash = '';
+	var dressThumbs = $( '#dressThumbs' );
+	var dressThumbsWrapper = $( '#dressThumbsWrapper' );
+	var accessoryThumbsWrapper = $( '#accessoryThumbsWrapper' );
+	var slideshowWindow = $( '#slideshowWindow' );
+	var leftArrowWrap = $( '#leftArrowWrap' );
+	var rightArrowWrap = $( '#rightArrowWrap' );
+	var slideshowWidth = slideshowWindow.width();
+	var slideshowLIs = '';
+	var slideWidth = 990;
+	var browseMore = $( '#browseMore' );
+
+	
+	
+
+
+
+
+	//------------------------------------------
+	function buildSlideshow() {
+		
+		for ( var j=0; j<slideStuff.length; j++ ) {
+
+			var productURL = slideStuff[ j ].productURL;
+			var designerTxt = slideStuff[ j ].designer;
+			var itemTxt = slideStuff[ j ].item;
+			var slideBkg = slideStuff[ j ].slideBkg;
+			var itemTxtColor = slideStuff[ j ].txtColor;
+			var itemTxtPos = slideStuff[ j ].txtPos;	
+			var browseMoreURL = slideStuff[ j ].browseMoreURL;
+			var captionBox = '';
+
+			
+			
+			var itemTxt_3lines = [
+				'<div class="caption ' + itemTxtColor + ' ' + itemTxtPos + '"><a href="'+
+				productURL[0]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[0]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[0]+
+				'</span></a><br/><a href="'+
+				productURL[1]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[1]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[1]+
+				'</span></a><br/><a href="'+
+				productURL[2]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[2]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[2]+
+				'</span></a>'
+			];
+
+			var itemTxt_2lines = [
+				'<div class="caption ' + itemTxtColor + ' ' + itemTxtPos + '"><a href="'+
+				productURL[0]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[0]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[0]+
+				'</span></a><br/><a href="'+
+				productURL[1]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[1]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[1]+
+				'</span></a></div>'
+			];
+			
+			var captionHTML = [
+				'<div class="caption ' + itemTxtColor + ' ' + itemTxtPos + '"><a href="'+
+				productURL[0]+
+				'"><span class="designerLinkTxt">'+
+				designerTxt[0]+
+				'&nbsp;</span><span class="captionLinkTxt">'+
+				itemTxt[0]+
+				'</span></a></div>'
+			];
+
+			
+			
+
+			// Number of lines for caption
+			if ( designerTxt.length == 3 ) {
+				captionBox = itemTxt_3lines;	
+			} else if ( designerTxt.length == 2 ) {
+				captionBox = itemTxt_2lines;	
+			} else if ( designerTxt.length == 1 ) {
+				captionBox = captionHTML;
+			}
+
+			var slidesHTML = '<li class="slide" style="background: url('+
+				slideBkg+
+				')"><a>'+
+				captionBox+
+				'</a></li>';
+
+			slideshowLIs += slidesHTML;
+			
+			var browseMoreHTML = '<a href="' + browseMoreURL + '" class="browseMoreLINK"><img src="' + browseMoreSRC + '"</a>'
+
+		}
+		slideshowWindow.append( slideshowLIs );
+		browseMore.html( browseMoreHTML );
+
+	}
+	
+
+
+	//------------------------------------------
+	function hashMgmt() {
+		
+		hash = window.location.hash.replace(/#/,'');
+	
+		page = hash % slideStuff.length;
+		
+		browseMoreHoverImg( hash );
+
+		if( hash == 0 ){
+			$( '#browseMoreTxtLink' ).fadeIn( 3000 );
+		}
+		
+	}
+
+
+
+	
+	//------------------------------------------
+	function arrowMgmt(animate){
+
+		hashMgmt();
+
+	    var leftPos =  page * -slideWidth;
+	  
+	    // slideshow animation position/distance
+	    if( animate ){
+	    	//alert(page);
+	    	
+	    	$( '#browseMoreTxtLink' ).hide();
+			$('.caption').hide();
+
+			$( slideshowWindow ).animate({left: leftPos}, 'slow', function() {	
+				$('.caption').fadeTo('opacity', '.8');
+			});
+			browseMoreHoverImg( page );
+			
+   		} else {
+   			$( slideshowWindow ).css({left: leftPos});
+	    	
+   		}
+
+	   	//-------------- Arrow visibilty and url hash for each page
+		/* sets the right arrow to next */
+		if ( page == 0 ) {
+			$( '#browseMoreTxtLink' ).show();
+			$( '#leftArrowWrap' ).hide();
+		}
+
+		if ( page <= slideStuff.length-1 ){
+
+			// arrow visibility
+			$( '#leftArrowWrap' ).show();
+			$( '#rightArrowWrap' ).show();
+
+			// setting urls for previous and next arrows
+			$( '#rightArrowWrap > .arrowLink' ).attr( 'href', '#' + (page + 1));
+			$( '#leftArrowWrap > .arrowLink' ).attr( 'href', '#' + (page - 1));
+
+			// show page thumbs initially
+			$( '#slide' + page + 'DressThumbs' ).show();
+			$( '#slide' + page + 'AccessoriesThumbs' ).show();
+
+			// show thumbs for next page
+			$( '#rightArrowWrap > .arrowLink' ).click(function () {
+				$( '#slide' + page + 'DressThumbs' ).hide();
+				$( '#slide' + (page+1) + 'DressThumbs' ).show();
+				$( '#slide' + page + 'AccessoriesThumbs' ).hide();
+				$( '#slide' + (page+1) + 'AccessoriesThumbs' ).show();
+			});
+
+			$( '#browseMoreTxtLink' ).click(function () {
+				$( '#slide' + page + 'DressThumbs' ).hide();
+				$( '#slide' + (page+1) + 'DressThumbs' ).show();
+				$( '#slide' + page + 'AccessoriesThumbs' ).hide();
+				$( '#slide' + (page+1) + 'AccessoriesThumbs' ).show();
+			});
+
+			// show thumbs for previous page
+			$( '#leftArrowWrap > .arrowLink' ).click(function () {
+				$( '#slide' + page + 'DressThumbs' ).hide();
+				$( '#slide' + (page-1) + 'DressThumbs' ).show();
+				$( '#slide' + page + 'AccessoriesThumbs' ).hide();
+				$( '#slide' + (page-1) + 'AccessoriesThumbs' ).show();
+			});	
+
+
+			/* if you're on the last slide */
+			if ( page == slideStuff.length-1 ) {
+				$( '#rightArrowWrap' ).hide();
+			}	
+
+			if ( page == 0 ) {
+				$( '#browseMoreTxtLink' ).show();
+				$( '#leftArrowWrap' ).hide();
+			}
+		
+		}
+
+	
+	}
+
+
+
+	// ----------------preload images
+    
+	// create object
+    hoveredPIC = new Image();
+    inactivePIC = new Image();
+    completeTheLookPIC = new Image();
+    
+    //set hover image list
+    var browseMoreHoverSRC = [
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg1_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg2_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg3_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg4_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg5_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg6_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg7_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg8_06-hover.jpg",
+        "http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg9_06-hover.jpg"
+    ];
+
+    //set image list
+    var browseMoreSRC = [
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg1_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg2_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg3_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg4_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg5_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg6_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg7_06.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_pg8_06.jpg"
+		
+	];
+
+	var completeTheLookSRC = [
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_completeLook.jpg",
+		"http://cdn.rtrcdn.com/sites/default/files/Summer13_LB_completeLook-hover.jpg"
+	];
+
+	
+	
+	//------------------------------------------
+	function browseMoreHoverImg( indexFromHash ) {
+		
+		var indexFromHash = indexFromHash || 0;
+
+		$('#browseMore a img').attr('src', browseMoreSRC[ indexFromHash ] );
+
+		$('#browseMore' ).hover(
+			function() {
+				$('#browseMore a img').attr('src', browseMoreHoverSRC[ indexFromHash ] );
+			},
+			function() {
+				$('#browseMore a img').attr('src', browseMoreSRC[ indexFromHash ] );
+			}
+		);
+
+		$( '#browseMore a' ).attr('href', slideStuff[ indexFromHash ].browseMoreURL );
+    	
+	}
+
+
+	
+	
+	
+
+
+	//================================ON DOC READY
+	$(function() {
+		
+
+		
+
+	    buildSlideshow();
+
+
+	   	// start preloading
+		for ( var d=0; d<browseMoreHoverSRC.length; d++ ) { 
+			
+			hoveredPIC.src = browseMoreHoverSRC[ d ];
+			inactivePIC.src = browseMoreSRC[ d ];
+			completeTheLookPIC.src = completeTheLookSRC[ d ];
+
+		}	
+		browseMoreHoverImg( 0 );
+
+
+		//------------------ opens Bonobos link in a new tab
+		$("[href='http://www.bonobos.com/']").click(function() {
+			$(this).attr('target', '_blank');
+		});
+
+
+
+		//------------------------------------------
+	    arrowMgmt( false );	// for initial page load
+
+		$( window ).bind('hashchange', function() {
+		  	arrowMgmt( true );
+		});
+
+		$( window ).OnBack(function() {
+			alert('You clicked it!');
+		});
+	});	
+
+</script>
+
+
+</body>
+</html>
